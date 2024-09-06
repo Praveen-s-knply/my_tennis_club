@@ -1,5 +1,8 @@
 {% extends "master.html" %} {% block title %} My Tennis Club - List of all
-Members {% endblock %} {% block content %}
+Members {% endblock %} 
+
+{% block content %}
+<p><a href="/">HOME</a></p>
 <h1>Members</h1>
 <ul>
   {% for member in mymembers %}
