@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    {% include 'mymenu.html' with me="PRAVEEN" sponsor="PRAVEEN_S" %}
+    <h1>Hello {{firstname}}, how are you?</h1>
+    {% with lastname="Tobias" %}
+        <h2>lastname : {{lastname}}.</h2>
+    {% endwith %}
+    <hr>
+    <ul>
+        {% for x in mymembers reversed %}
+            <li>{{x.firstname}}</li>
+        {% endfor %}
+    </ul>
+    <hr>
+    {% if greeting == 1 %}
+        <h1>Hello</h1>
+    {% elif greeting == 2 %}
+        <h1>Bye</h1>
+    {% else %}
+        <h1>Goodbye</h1>
+    {% endif %}
+    <hr>
+    <ul>
+        {% for x in emptytestobject %}
+            <li>{{x.firstname}}</li>
+        {% empty %}
+            <li>No members</li>
+        {% endfor %}
+    </ul>
+    <hr>
+    <ul>
+        {% for x in myobject %}
+            <li>{{x.firstname}}</li>
+        {% empty %}
+            <li>object does not exist</li>
+        {% endfor %}
+    </ul>
+    <hr>
+    <ul>
+        {% for x in fruits %}
+            <li
+            >{{ forloop.revcounter0 }}</li>
+        {% endfor %}
+    </ul>
+    <h1>Welcome {# Everyone #}</h1>
+    {% comment "this was the original welcome message" %}
+        <h1>Welcome ladies and gentlemen</h1>
+    {% endcomment %}
+    {% include 'footer.html' %}
+</body>
+</html>
